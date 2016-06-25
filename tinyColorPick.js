@@ -28,26 +28,27 @@ Meteor.tinyColorPick = {
     }
 };
 
-(function () {
-    Template.tinyColorPick.events({
-            "pick": function (event) {
-            }
-    });
 
-    Template.tinyColorPick.helpers({});
+Template.tinyColorPick.events({
+	"pick": function (event) {
+		
+	}
+});
+
+Template.tinyColorPick.helpers({});
 
 
-    Template.tinyColorPick.rendered = function () {
-        $("#tinycolorpick" + Template.currentData()._id)
-            .simpleColorPicker(
-                {   colorsPerLine: tinyColorPickOptions.colorsPerLine,
-                    colors: tinyColorPickOptions.colors,
-                    onChangeColor: function (color) {
-                        var event = $.Event("pick", {"color" : color});
-                        this.trigger(event);
-                    }
-                }
-            );
-    };
+Template.tinyColorPick.rendered = function () {
+	$("#tinycolorpick" + Template.currentData()._id)
+	.simpleColorPicker(
+		{   
+			colorsPerLine: tinyColorPickOptions.colorsPerLine,
+			colors: tinyColorPickOptions.colors,
+			onChangeColor: function (color) {
+				var event = $.Event("pick", {"color" : color});
+				this.trigger(event);
+			}
+		}
+	);
+}
 
-})();
