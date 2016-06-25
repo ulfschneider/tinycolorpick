@@ -1,6 +1,6 @@
 Package.describe({
   name: "ulfschneider:tinycolorpick",
-  version: "1.1.0",
+  version: "1.0.0",
   summary: "An adapted version of http://rachel-carvalho.github.io/simple-color-picker/",
   git: "https://github.com/ulfschneider/tinycolorpick",
   documentation: "README.md"
