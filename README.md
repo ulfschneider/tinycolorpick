@@ -9,7 +9,7 @@ Sample on [Spitfire](http://spitfire.peewee.space/tinycolorpick).
 ## Installation
 
 ```
-$ meteor add ulfeed:tinycolorpick
+$ meteor add ulfschneider:tinycolorpick
 ```
 
 ## Usage
