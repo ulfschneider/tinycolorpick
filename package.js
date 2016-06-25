@@ -16,7 +16,7 @@ Package.onUse(function(api) {
      "tinyColorPick.html",
      "tinyColorPick.js"
    ], ["client"]);
-	//api.export("tinyColorPick", "client");
+
 	api.mainModule("tinyColorPick.js", "client");
 });
 
