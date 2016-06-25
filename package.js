@@ -9,6 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
   api.versionsFrom("1.3.2.4");
   api.use(["ecmascript", "templating", "jquery"]);
+  api.mainModule("tinyColorPick.js", "client");
 	
   api.addFiles([
      "simple-color-picker.js",
@@ -17,7 +18,6 @@ Package.onUse(function(api) {
      "tinyColorPick.js"
    ], ["client"]);
 
-    api.export(["tinyColorPick"], ["client"]);
 });
 
 
