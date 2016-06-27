@@ -27,7 +27,7 @@ $.fn.simpleColorPicker = function(options) {
 		showEffect: '',
 		hideEffect: '',
 		onChangeColor: false,
-		includeMargins:false,
+		includeMargins:true,
         opacity: .6
 	};
 
@@ -52,7 +52,7 @@ $.fn.simpleColorPicker = function(options) {
 				colorsMarkup += '<li style="float: none; clear: both; overflow: hidden; background-color: #fff; display: block; height: 1px; line-height: 1px; font-size: 1px; margin-bottom: -2px;"></li>';
 			}
 
-            if (opts.opacity) {
+        if (opts.opacity) {
                 var rgb = $.fn.hexToRGB(item);
                 colorsMarkup += '<li id="' + prefix + 'color-' + i + '" class="color-box" style="' + breakLine + 'background: ' + item + '; background:rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ',' + opts.opacity + ');" title="' + item + '"></li>';
             } else {
@@ -60,7 +60,7 @@ $.fn.simpleColorPicker = function(options) {
             }
 		}
 
-		var box = $('<div id="' + prefix + 'color-picker" class="color-picker" style="position: absolute; left: 0px; top: 0px; width:' + (opts.colorsPerLine * 21 ) + 'px"><ul>' + colorsMarkup + '</ul><div style="clear: both;"></div></div>');
+		var box = $('<div id="' + prefix + 'color-picker" class="color-picker" style="position: absolute; left: 0px; top: 0px; width:auto;"><ul>' + colorsMarkup + '</ul><div style="clear: both;"></div></div>');
 		$('body').append(box);
 		box.hide();
 
