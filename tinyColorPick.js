@@ -14,7 +14,8 @@ Meteor.tinyColorPick = {
             $("#tinycolorpick" + Template.currentData()._id)
                 .css("background", color); //fallback in case opacity is not supported by browser
             if (tinyColorPickOptions.opacity) {
-                var rgb = $.fn.hexToRGB(color);
+                var c = tinycolor(color);
+				var rgb = c.toRgb();
                 $("#tinycolorpick" + Template.currentData()._id)
                     .css("background", "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + "," + tinyColorPickOptions.opacity + ")");
             }
@@ -29,9 +30,10 @@ Meteor.tinyColorPick = {
 };
 
 
+
 Template.tinyColorPick.events({
 	"pick": function (event) {
-		
+
 	}
 });
 
@@ -41,7 +43,7 @@ Template.tinyColorPick.helpers({});
 Template.tinyColorPick.rendered = function () {
 	$("#tinycolorpick" + Template.currentData()._id)
 	.simpleColorPicker(
-		{   
+		{
 			colorsPerLine: tinyColorPickOptions.colorsPerLine,
 			colors: tinyColorPickOptions.colors,
 			onChangeColor: function (color) {

@@ -1,18 +1,3 @@
-$.fn.hexToRGB = function(hex)  {
-    // expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-        return r + r + g + g + b + b;
-    });
-
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
-};
-
 $.fn.simpleColorPicker = function(options) {
 	var defaults = {
 		colorsPerLine: 8,
@@ -53,7 +38,8 @@ $.fn.simpleColorPicker = function(options) {
 			}
 
         if (opts.opacity) {
-                var rgb = $.fn.hexToRGB(item);
+			var c = tinycolor(item);
+			var rgb = c.toRgb();
                 colorsMarkup += '<li id="' + prefix + 'color-' + i + '" class="color-box" style="' + breakLine + 'background: ' + item + '; background:rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ',' + opts.opacity + ');" title="' + item + '"></li>';
             } else {
                 colorsMarkup += '<li id="' + prefix + 'color-' + i + '" class="color-box" style="' + breakLine + 'background: ' + item + '" title="' + item + '"></li>';
@@ -106,7 +92,7 @@ $.fn.simpleColorPicker = function(options) {
 		txt.focus(function() {
 			positionAndShowBox(box);
 		});
-
+				
 		function hideBox(box) {
 			if (opts.hideEffect == 'fade')
 				box.fadeOut();

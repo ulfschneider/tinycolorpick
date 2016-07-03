@@ -1,6 +1,6 @@
 Package.describe({
   name: "ulfschneider:tinycolorpick",
-  version: "1.0.1",
+  version: "1.0.2",
   summary: "An adapted version of http://rachel-carvalho.github.io/simple-color-picker/",
   git: "https://github.com/ulfschneider/tinycolorpick",
   documentation: "README.md"
@@ -8,7 +8,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom("1.3.2.4");
-  api.use(["ecmascript", "templating", "jquery"]);
+  api.use(["ecmascript", "templating", "jquery", "aramk:tinycolor"]);
 	
   api.addFiles([
      "simple-color-picker.js",
@@ -16,7 +16,6 @@ Package.onUse(function(api) {
      "tinyColorPick.html",
      "tinyColorPick.js"
    ], ["client"]);
-
 	api.mainModule("tinyColorPick.js", "client");
 });
 
